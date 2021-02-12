@@ -23,8 +23,11 @@ export class Board {
     let tempBoard = [];
     for (let i = 0; i < this.board.length; i++) {
       tempBoard[i] = [];
-      for (let j = 0; j < this.board[i].length; j++) {}
+      for (let j = 0; j < this.board[i].length; j++) {
+        tempBoard[i].push(this.checkRules(i, j));
+      }
     }
+    this.board = [...tempBoard];
   }
 
   checkRules(coordX: number, coordY: number): number {
