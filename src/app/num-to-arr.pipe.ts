@@ -1,12 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'numToArr'
+  name: 'numToArr',
 })
 export class NumToArrPipe implements PipeTransform {
-
   transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+    return [...Array(value).keys()];
   }
-
 }

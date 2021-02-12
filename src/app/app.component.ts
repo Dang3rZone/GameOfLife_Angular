@@ -20,4 +20,8 @@ export class AppComponent {
     this.generation = 0;
     this.board = new Board(this.numCols, this.numRows);
   }
+
+  onClick(row, col) {
+    console.log(row, col);
+  }
 }

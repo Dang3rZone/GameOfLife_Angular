@@ -1,5 +1,10 @@
 <div class="game">
-  <div class="row" **ngFor="let row of numRows | numToArr">
-    <div class="col"></div>
+  <div class="row" *ngFor="let row of numRows | numToArr">
+    <div class="col" *ngFor="let col of numCols | numToArr">
+      <button
+        (click)="onClick(row, col)"
+        [ngClass]="{ alive: board.status(row, col) === 1 }"
+      ></button>
+    </div>
   </div>
 </div>

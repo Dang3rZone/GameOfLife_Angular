@@ -1,0 +1,21 @@
+.game {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.game button {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 1px solid gray;
+}
+
+.game button.alice {
+  background-color: tomato;
+}
