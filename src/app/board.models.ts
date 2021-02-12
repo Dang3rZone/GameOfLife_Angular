@@ -32,7 +32,29 @@ export class Board {
     const height = this.board[0].length;
 
     const xMenos = coordX - 1 < 0 ? width - 1 : coordX - 1;
-    const xMaas = coordX + 1 >= width ? 0 : coordX - 1;
-    return;
+    const xMas = coordX + 1 >= width ? 0 : coordX + 1;
+    const yMenos = coordY - 1 < 0 ? height - 1 : coordY - 1;
+    const yMas = coordY + 1 >= height ? 0 : coordY + 1;
+
+    const currentStatus = this.board[coordX][coordY];
+
+    const vecinos =
+      this.board[xMenos][yMenos] +
+      this.board[xMenos][coordY] +
+      this.board[xMenos][yMas] +
+      this.board[coordX][yMenos] +
+      this.board[coordX][yMas] +
+      this.board[xMas][yMenos] +
+      this.board[xMas][coordY] +
+      this.board[xMas][yMas];
+
+    // games rules
+    if (currentStatus === 1 && (vecinos === 2 || vecinos === 3)) {
+      return 1;
+    }
+    if (currentStatus === 0 && vecinos === 3) {
+      return 1;
+    }
+    return 0;
   }
 }
